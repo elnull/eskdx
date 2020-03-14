@@ -14,6 +14,22 @@ DIST_FILES = \
 
 include $(TOP_DIR)/include.mak
 
+ifeq ($(shell uname -o),Cygwin)
+	svgtopdf =	sed -e 's/font-family:GOST type B/font-family:ISOCPEUR/' $< > $<_isocpeur; \
+				inkscape --without-gui --export-text-to-path \
+				--export-eps=`cygpath -aw $@` `cygpath -aw $<_isocpeur`; \
+				rm -f $<_isocpeur
+	svgtopdf =	sed -e 's/font-family:GOST type B/font-family:ISOCPEUR/' $< > $<_isocpeur; \
+				inkscape --without-gui --export-text-to-path \
+				--export-pdf=`cygpath -aw $@` `cygpath -aw $<_isocpeur`; \
+				rm -f $<_isocpeur
+else
+	svgtoeps =	inkscape --without-gui --export-text-to-path \
+				--export-eps=$@ $<
+	svgtopdf =	inkscape --without-gui --export-text-to-path \
+				--export-pdf=$@ $<
+endif
+
 all: eskdx.pdf
 
 eskdx.tex: eskdx.tex.in $(M4DEPS)
@@ -33,17 +49,17 @@ html: html.tex html.aux example.tex \
 	latex2html -init_file latex2html-init -iso_language RU $<
 
 %.eps: %.svg
-	inkscape --without-gui --export-text-to-path \
-	    --export-eps=$@ $<
+	$(svgtoeps)
 
 %.pdf: %.svg
-	inkscape --without-gui --export-text-to-path \
-	    --export-pdf=$@ $<
+	$(svgtopdf)
 
 clean:
 	rm -f {eskdx,html}.{aux,out,log,toc}
 	rm -f html.{tex,dvi} WARNINGS
 	rm -rf html
-	rm -f img-{form1,form2,form2a,title}.{eps,pdf}
+	rm -f img-{form1,form2,form2a,title}.{eps,pdf,svg_isocpeur}
+	rm -f *.origin
+	rm -f *~
 
 .PHONY: html

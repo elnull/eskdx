@@ -20,7 +20,6 @@ m4_FILE_INIT
 \ProvidesPackage{eskddstu}[m4_dnl
 m4_FILE_ID([[$Date::            $]]) Ukrainian DSTU implementation]
 
-
 % Настройка пояснений к формулам согласно ДСТУ 3008, п. 7.10.3
 
 % временная длина для передачи внутрь окружения {list}

@@ -18,7 +18,7 @@ m4_ESKDX_INIT
 m4_FILE_INIT
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{eskdplain}[m4_dnl
-m4_FILE_ID([[$Date::            $]]) Plain Page Style]
+m4_FILE_ID([[$Date::                            $]]) Plain Page Style]
 
 \RequirePackage{eskdstamp}
 \RequirePackage{calc}
@@ -46,11 +46,11 @@ m4_FILE_ID([[$Date::            $]]) Plain Page Style]
 \let\ESKD@plain@ha\ESKD@plain@hc
 \let\ESKD@plain@va\ESKD@plain@vb
 
-\DeclareOption{numbertop}{\let\ESKD@plain@va\ESKD@plain@vt}
+\DeclareOption{numbertop}   {\let\ESKD@plain@va\ESKD@plain@vt}
 \DeclareOption{numberbottom}{\let\ESKD@plain@va\ESKD@plain@vb}
-\DeclareOption{numberleft}{\let\ESKD@plain@ha\ESKD@plain@hl}
+\DeclareOption{numberleft}  {\let\ESKD@plain@ha\ESKD@plain@hl}
 \DeclareOption{numbercenter}{\let\ESKD@plain@ha\ESKD@plain@hc}
-\DeclareOption{numberright}{\let\ESKD@plain@ha\ESKD@plain@hr}
+\DeclareOption{numberright} {\let\ESKD@plain@ha\ESKD@plain@hr}
 
 \ProcessOptions\relax
 
@@ -65,6 +65,19 @@ m4_FILE_ID([[$Date::            $]]) Plain Page Style]
 
 \ESKDnewStyle{plain}{0mm}
 \ESKDputOnStyle{plain}{pagenumber}{\ESKDdrawPlainPageNumber}
+
+\@ifpackageloaded{eskdfreesize}{
+  \ESKDputOnStyle{freesize}{pagenumber}{\ESKDdrawPlainPageNumber}
+  \ESKDremoveFromStyle{freesize}{stamp}
+  \ESKDremoveFromStyle{freesize}{frame}
+  \ESKDremoveFromStyle{freesize}{columnsxix}
+  \ESKDremoveFromStyle{freesize}{columnxxvi}
+  \ESKDremoveFromStyle{freesize}{columnsxxvii}
+  \ESKDremoveFromStyle{freesize}{columnxxxi}
+  \ESKDremoveFromStyle{freesize}{columnxxxii}
+  \ESKDremoveFromStyle{freesize}{columnxxxiii}
+  \ESKDremoveFromStyle{freesize}{columnxxxiv}}
+  {}
 
 \ESKDdefaultTitleStyle{empty}
 \ESKDdefaultFirstStyle{plain}

@@ -2,8 +2,10 @@ manual/eskdx.tex
 source/eskdafterpkg.sty.in
 source/eskdappsheet.sty.in
 source/eskdbiblist.sty.in
+source/eskdbom.sty.in
 source/eskdcap.sty.in
 source/eskdchngsheet.sty.in
+source/eskdcmplist.sty.in
 source/eskddstu.sty.in
 source/eskdexplan.sty.in
 source/eskdfont.sty.in
@@ -15,6 +17,7 @@ source/eskdindent.sty.in
 source/eskdinfo.sty.in
 source/eskdlang.sty.in
 source/eskdlist.sty.in
+source/eskdlongtable.sty.in
 source/eskdpara.sty.in
 source/eskdplain.sty.in
 source/eskdrussian.def.in

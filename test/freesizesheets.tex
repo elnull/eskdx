@@ -13,7 +13,7 @@
 \usepackage{calc}
 
 \ESKDtitle{eskdtext}
-\ESKDdocName{Проверка коллекции. Проверка смены размера бумаги на лету}
+\ESKDdocName{Проверка смены размера бумаги на лету}
 \ESKDsignature{Обозначение документа}
 \ESKDauthor{Автор~И.~О.}
 \ESKDtitleApprovedBy{Должность утверждающего}{Фам. утвер.}
@@ -28,7 +28,9 @@
   {#2 \stepcounter{printalotfirst}}
 }
 
+
 \newcommand{\printcnt}{180} % примерно столько надо на 0.7 страницы А4
+
 
 \begin{document}
   \section*{А4 портретная ориентация}
@@ -46,6 +48,7 @@
   \printalot{\printcnt*2}{А3 ландшафт}\par
   \printalot{\printcnt*2}{А3 ландшафт}
 }
+
 
 % A2
 \ESKDportraitAII{
